@@ -2,28 +2,284 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrick Dillon | Projects</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header Styles */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+
+    /* Navigation Styles */
+    .nav-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .nav-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(45deg, #5a6fd8, #6b5b95);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Main Content */
+    main {
+      padding: 4rem 0;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Content Section */
+    .content-section {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+
+    .grid-item {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .grid-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .grid-item a {
+      text-decoration: none;
+      display: block;
+    }
+
+    .grid-item img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 10px;
+      margin: 0 auto 1rem;
+      display: block;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .grid-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .label {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2c3e50;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .content-section {
+        padding: 2rem 1rem;
+      }
+
+      .nav-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .grid-item {
+        padding: 1.5rem;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 15px;
+      }
+
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .nav-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-btn {
+        width: 100%;
+      }
+
+      .grid-item {
+        padding: 1rem;
+      }
+    }
+
+    /* Subtle animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-section,
+    .content-section {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .content-section {
+      animation-delay: 0.2s;
+    }
+  </style>
 </head>
-<link rel="stylesheet" href="Styles.CSS">
 <body>
   <header>
-    <h1>Patrick Dillon Portfolio</h1>
-  </header>
-
-  <div class="button-row">
-    <button onclick="window.location.href='index.html'">Home</button>
-    <button onclick="window.location.href='AboutMe.html'">About Me</button>
-    <button onclick="window.location.href='Projects.html'">Projects</button>
-  </div>
-
-  <div class="container">
-    <!--<div class="sub-header">Chess Game</div> -->
-    <div class="grid">
-      <div class="grid-item">
-        <a href="ChessGame.html">
-        <img src="Chess Game.png" alt="Click here to view full details of chess game"></a>
-        <div class="label">Chess Game</div>
-        
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">Patrick Dillon</a>
+        <nav class="nav-buttons">
+          <button class="nav-btn" onclick="window.location.href='index.html'">Home</button>
+          <button class="nav-btn" onclick="window.location.href='AboutMe.html'">About Me</button>
+          <button class="nav-btn active" onclick="window.location.href='Projects.html'">Projects</button>
+        </nav>
       </div>
     </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero-section">
+        <h1 class="hero-title">My Projects</h1>
+      </section>
+
+      <section class="content-section">
+        <div class="grid">
+          <div class="grid-item">
+            <a href="Elfino.html">
+            <img src="ticker.jpg" alt="Click here to view full details of Ticker"></a>
+            <div class="label">"Ticker" for Cosmetics Company Marketing Campaign</div>
+          </div>
+          <div class="grid-item">
+            <a href="Candle.html">
+            <img src="candle.jpg" alt="Click here to view full details of Candle Flame"></a>
+            <div class="label">Candle Flame Hologram</div>
+          </div>
+          <div class="grid-item">
+            <a href="ChessGame.html">
+            <img src="Chess Game.png" alt="Click here to view full details of chess game"></a>
+            <div class="label">Chess Game for A level Project</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
 </body>
 </html>
