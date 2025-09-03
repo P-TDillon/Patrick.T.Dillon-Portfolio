@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrick Dillon | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #2c3e50;
+      text-decoration: none;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .nav-btn {
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .nav-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .nav-btn.active {
+      background: linear-gradient(45deg, #5a6fd8, #6b5b95);
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    }
+
+    main {
+      padding: 4rem 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .grid-item {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+
+    .grid-item:hover {
+      transform: scale(1.02);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      max-width: 100%;
+    }
+
+    .label {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    .button-row {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .cta-section {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cv-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    }
+
+    .cv-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+    }
+
+    .cv-button::before {
+      content: "♟️";
+      font-size: 1.2rem;
+    }
+
+    .error-message {
+      color: #e74c3c;
+      background: rgba(231, 76, 60, 0.1);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      border-left: 4px solid #e74c3c;
+    }
+
+    .project-description {
+      margin-top: 3rem;
+    }
+
+    .description-box {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+      text-align: left;
+    }
+
+    .description-box:hover {
+      transform: scale(1.01);
+    }
+
+    .description-box p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #555;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">Patrick Dillon</a>
+        <nav class="nav-buttons">
+          <button class="nav-btn" onclick="window.location.href='index.html'">Home</button>
+          <button class="nav-btn" onclick="window.location.href='AboutMe.html'">About Me</button>
+          <button class="nav-btn active" onclick="window.location.href='Projects.html'">Projects</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="button-row">
+        <button class="nav-btn" onclick="window.location.href='Projects.html'">Return to Projects</button>
+      </div>
+
+      <section class="grid">
+        <div class="grid-item">
+          <img
+            src="clinics.png">
+          </img>
+          <div class="label">Clinics Page</div>
+          <div class="error-message" style="display: none;" id="error1">
+            Video failed to load. Please check the file path and format.
+          </div>
+        </div>
+        <div class="grid-item">
+          <img
+            src="ratings.png">
+          </img>
+          <div class="label">Ratings Page</div>
+          <div class="error-message" style="display: none;" id="error2">
+            Video failed to load. Please check the file path and format.
+          </div>
+        </div>
+      </section>
+
+      <section class="project-description">
+        <div class="description-box">
+          <p>This is one of the projects that I completed as part of my first year in Computer Science at Loughborough University. This was an HTML/CSS/JavaScript/PHP/SQL project representing a medical scheduling system. The screens shown are two of the pages that displayed information obtained from a database. Various data filtering functionality was implemented. The map showing clinic locations was implemented using Leaflet, an open source JavaScript library.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Add error handling for videos
+    document.addEventListener('DOMContentLoaded', function() {
+      const videos = document.querySelectorAll('video');
+      
+      videos.forEach((video, index) => {
+        video.addEventListener('error', function() {
+          const errorDiv = document.getElementById('error' + (index + 1));
+          if (errorDiv) {
+            errorDiv.style.display = 'block';
+          }
+        });
+        
+        video.addEventListener('loadeddata', function() {
+          const errorDiv = document.getElementById('error' + (index + 1));
+          if (errorDiv) {
+            errorDiv.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
