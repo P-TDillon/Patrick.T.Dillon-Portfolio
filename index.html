@@ -87,6 +87,7 @@
     .hero-section {
       text-align: center;
       margin-bottom: 4rem;
+      position: relative;
     }
 
     .hero-title {
@@ -101,6 +102,36 @@
       font-size: 1.2rem;
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 2rem;
+    }
+
+    /* CV Button Positioning */
+    .cv-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 150;
+    }
+
+    .cv-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+    }
+
+    .cv-button::before {
+      content: "📄";
+      font-size: 1.2rem;
     }
 
     /* Image Section */
@@ -148,32 +179,21 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .cv-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 1rem 2rem;
-      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-      color: white;
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-    }
-
-    .cv-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
-    }
-
-    .cv-button::before {
-      content: "📄";
-      font-size: 1.2rem;
-    }
-
     /* Responsive Design */
+    @media (max-width: 968px) {
+      /* When header becomes cramped, move CV button below header */
+      .cv-button {
+        position: absolute;
+        top: auto;
+        right: 0;
+        margin-top: 1rem;
+      }
+
+      .hero-section {
+        padding-top: 4rem; /* Add space for the CV button */
+      }
+    }
+
     @media (max-width: 768px) {
       .header-content {
         flex-direction: column;
@@ -205,6 +225,16 @@
         padding: 0.6rem 1.2rem;
         font-size: 0.9rem;
       }
+
+      .cv-button {
+        position: static;
+        margin: 1rem auto 0;
+        display: inline-flex;
+      }
+
+      .hero-section {
+        padding-top: 0;
+      }
     }
 
     @media (max-width: 480px) {
@@ -223,6 +253,18 @@
 
       .nav-btn {
         width: 100%;
+      }
+
+      .cv-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+      }
+    }
+
+    /* Ensure CV button doesn't overlap with header content */
+    @media (min-width: 969px) and (max-width: 1200px) {
+      .cv-button {
+        right: calc(20px + (1200px - 100vw) / 2);
       }
     }
 
@@ -266,11 +308,14 @@
       </div>
     </div>
   </header>
-
+    
   <main>
     <div class="container">
       <section class="hero-section">
-        <h1 class="hero-title">Welcome to My Portfolio</h1>
+        <div class="hero-header">
+          <h1 class="hero-title">Welcome to My Portfolio</h1>
+          <a href="Patrick Dillon CV.pdf" target="_blank" class="cv-button">My CV</a>
+        </div>
       </section>
 
       <section class="image-section">
@@ -278,12 +323,6 @@
           <img src="Hazlerigg Building.png" alt="Hazlerigg Building at Loughborough University" class="hero-image" />
           <p class="image-caption">Hazlerigg Building, Loughborough University</p>
         </div>
-      </section>
-
-      <section class="cta-section">
-        <a href="Patrick Dillon CV.pdf" target="_blank" class="cv-button">
-          My CV
-        </a>
       </section>
     </div>
   </main>
